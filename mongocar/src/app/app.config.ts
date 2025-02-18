@@ -2,6 +2,7 @@ import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/Aura';
+import {AppPreset} from './appPreset';
 
 
 export const appConfig: ApplicationConfig = {
@@ -9,10 +10,10 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: AppPreset,
         options: {
           prefix: 'p',
-          darkModeSelector: 'system',
+          darkModeSelector: '.my-app-dark',
           cssLayer: {
             name: 'primeng',
             order: 'app-styles, primeng'

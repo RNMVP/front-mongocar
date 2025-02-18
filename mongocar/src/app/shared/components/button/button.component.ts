@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrl: './button.component.css'
 })
-export class ButtonComponent {
+export class ButtonComponent{
 
+  @Input()
+  label = ""
+
+  @Input()
+  onClick = ()=> {}
 }

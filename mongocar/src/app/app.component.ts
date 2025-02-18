@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mongocar';
+
+  toggleDarkMode() {
+    const element = document.querySelector('html');
+    element ? element.classList.toggle('my-app-dark') : console.log('não carregou')
+
+    alert('clicou')
+  }
 }
