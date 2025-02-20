@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import ButtonOptions from './interfaces/BtnOptions';
 
 @Component({
   selector: 'app-button',
@@ -13,4 +14,8 @@ export class ButtonComponent{
 
   @Input()
   onClick = ()=> {}
+  @Input()
+  severity: ButtonOptions['severity'] = 'primary';
+  @Input()
+  variant: ButtonOptions['variant'] = undefined
 }

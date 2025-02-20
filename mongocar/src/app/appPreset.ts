@@ -2,7 +2,7 @@ import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 import {palette} from '@primeng/themes';
 
-const primaryColor = palette('{zinc}')
+const primaryColor = palette('{indigo}')
 console.log(primaryColor)
 
 export const AppPreset = definePreset(Aura, {
@@ -11,16 +11,22 @@ export const AppPreset = definePreset(Aura, {
     colorScheme: {
       light: {
         primary: {
-          color: '{primary.950}',
+          color: '{primary.500}',
           inverseColor: '#ffffff',
           hoverColor: '{zinc.900}',
           activeColor: '{zinc.800}'
         },
+        secondary: {
+          color: '#000',
+          inverseColor: '#fff',
+          hoverColor: '#555',
+          activeColor: '#117'
+        },
         highlight: {
           background: '{primary.700}',
-          focusBackground: '{zinc.700}',
-          color: '#ffffff',
-          focusColor: '#ffffff'
+          focusBackground: '{primary.700}',
+          color: '#fff',
+          focusColor: '#fff'
         },
         button:{
           background: '{primary.100}',
@@ -47,7 +53,7 @@ export const AppPreset = definePreset(Aura, {
       colorScheme: {
         light: {
           primary: {
-            background: '{primary.800}',
+            background: '{primary.color}',
             color: '{surface.700}'
           },
           subtitle: {
