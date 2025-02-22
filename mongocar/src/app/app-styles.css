@@ -8,4 +8,9 @@
   .p-button-link{
     padding: 0;
   }
+
+  .error-message{
+    color: var(--p-text-error-color);
+    font-size: 0.8rem;
+  }
 }

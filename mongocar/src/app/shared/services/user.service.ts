@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   baseUrl = environment.apiUrl;
-  jsonServerUrl = "http://localhost:3000/"
+  jsonServerUrl = "http://localhost:3000" //json-server generate a server in port 3000. use --port to define other
 
   createClient = (newCustomer: CustomerModel) => {
     // return this.http.post(`${this.baseUrl}/customer`, newCustomer);

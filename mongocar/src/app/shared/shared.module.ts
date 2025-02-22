@@ -7,13 +7,15 @@ import {RouterLink} from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
 import {Toast} from 'primeng/toast';
 import {Menu} from 'primeng/menu';
+import {provideHttpClient} from '@angular/common/http';
+import {UserService} from './services/user.service';
 
 
 
 @NgModule({
   declarations: [
     ButtonComponent,
-    MenuComponent
+    MenuComponent,
   ],
   exports: [
     ButtonComponent,
@@ -27,5 +29,9 @@ import {Menu} from 'primeng/menu';
     Toast,
     Menu,
   ],
+  providers: [
+    UserService,
+    provideHttpClient(),
+  ]
 })
 export class SharedModule { }

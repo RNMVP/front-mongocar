@@ -30,6 +30,34 @@
           "carPlate": "LMN-3456"
         }
       ]
+    },
+    {
+      "id": "754dbff5-0722-40b8-9ffc-c57861372bfc",
+      "name": "",
+      "email": "",
+      "password": "",
+      "cars": {}
+    },
+    {
+      "id": "6e56a96b-3067-4c99-af83-f13892f84bf8",
+      "name": "Carlos",
+      "email": "carlos.oliveira@example.com",
+      "password": "Carlos_123",
+      "cars": {}
+    },
+    {
+      "id": "6eed21f5-7f46-453c-a8b2-727398f016f5",
+      "name": "ddd",
+      "email": "carlos.oliveira@example.com",
+      "password": "ddd",
+      "cars": {}
+    },
+    {
+      "id": "baff3439-0361-49bf-a259-09d2c88d1633",
+      "name": "renan",
+      "email": "exemplo@gmail.com",
+      "password": "@Renan123",
+      "cars": {}
     }
   ],
   "employees": [

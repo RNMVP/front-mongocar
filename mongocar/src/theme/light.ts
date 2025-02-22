@@ -24,5 +24,11 @@ const light = {
     color: '{yellow.900}',
     focusColor: '#fff'
   },
+  text:{
+    color: '#000',
+    error:{
+      color: '{red.500}'
+    }
+  }
 }
 export default light;

@@ -1,17 +1,26 @@
 <div class="register-container">
   <div class="register-card">
     <h2>Registro</h2>
-    <form (ngSubmit)="onRegister()">
+    <form (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm">
       <div class="p-field">
         <label for="name">Nome</label>
         <input
           id="name"
-          type="text"
           pInputText
           [(ngModel)]="name"
           name="name"
           required
+          minlength="3"
+          #nameField="ngModel"
         />
+        <div *ngIf="nameField.invalid && (nameField.dirty || nameField.touched)" class="error-message">
+          <div *ngIf="nameField.errors?.['required']">
+            O nome é obrigatório.
+          </div>
+          <div *ngIf="nameField.errors?.['minlength']">
+            O nome deve ter pelo menos 3 caracteres.
+          </div>
+        </div>
       </div>
 
       <div class="p-field">
@@ -23,7 +32,17 @@
           [(ngModel)]="email"
           name="email"
           required
+          pattern="[a-zA-Z0-9._-]{2,}@[a-z]{2,}(\.[a-z]{2,})+"
+          #emailField="ngModel"
         />
+        <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="error-message">
+          <div *ngIf="emailField.errors?.['required']">
+            O email é obrigatório.
+          </div>
+          <div *ngIf="emailField.errors?.['pattern']">
+            deve estar no formato exemplo&#64;dominio.algo.
+          </div>
+        </div>
       </div>
 
       <div class="p-field">
@@ -35,7 +54,24 @@
           [(ngModel)]="password"
           name="password"
           required
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#_.])[0-9a-zA-Z$*&@#_.]{8,}$"
+          #senhaField="ngModel"
         />
+        <div *ngIf="senhaField.invalid && (senhaField.dirty || senhaField.touched)" class="error-message">
+          <div *ngIf="senhaField.errors?.['required']">
+            A senha é obrigatória.
+          </div>
+          <div *ngIf="senhaField.errors?.['pattern']">
+            A senha deve possuir <u>ao menos</u>:
+            <ul class="m-1">
+              <li>Uma letra maiuscula</li>
+              <li>Uma letra minuscula</li>
+              <li>Um caractere especial</li>
+              <li>Um digito numerico</li>
+              <li>8 digitos</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="p-field">
@@ -48,18 +84,25 @@
           name="confirmPassword"
           required
         />
+        <div *ngIf="differentPassword" class="error-message">
+          As senhas devem ser iguais.
+        </div>
       </div>
 
       <app-button
         label="Registrar"
-        type="submit"
+        type="submite"
       ></app-button>
 
       <div class="opcao">
         <p class="login-link">
           Já tem uma conta?
         </p>
-        <app-button style="color: var(--p-primary-inverse-color)" [link]="true" routerLink="/login" label="Faça login"></app-button>
+        <app-button
+          style="color: var(--p-primary-inverse-color)"
+          [link]="true"
+          routerLink="/login"
+          label="Faça login"></app-button>
       </div>
     </form>
   </div>

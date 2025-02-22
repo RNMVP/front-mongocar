@@ -25,4 +25,6 @@ export class ButtonComponent{
   styleClass: string | undefined = undefined
   @Input()
   ancora: string | undefined = undefined
+  @Input()
+  type: string  = 'button';
 }
