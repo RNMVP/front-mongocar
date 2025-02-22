@@ -1,1 +1,55 @@
-{}
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "email": "alice.johnson@email.com",
+      "password": "securepassword1",
+      "cars": [
+        {
+          "brand": "Toyota",
+          "color": "Red",
+          "carPlate": "XYZ-1234"
+        },
+        {
+          "brand": "Honda",
+          "color": "Blue",
+          "carPlate": "ABC-5678"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Michael Brown",
+      "email": "michael.brown@email.com",
+      "password": "securepassword2",
+      "cars": [
+        {
+          "brand": "Ford",
+          "color": "Black",
+          "carPlate": "LMN-3456"
+        }
+      ]
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "name": "John Smith",
+      "salary": 5000,
+      "position": "Manager"
+    },
+    {
+      "id": "2",
+      "name": "Emma Williams",
+      "salary": 4000,
+      "position": "Developer"
+    },
+    {
+      "id": "3",
+      "name": "Robert Davis",
+      "salary": 3500,
+      "position": "Support Specialist"
+    }
+  ]
+}
