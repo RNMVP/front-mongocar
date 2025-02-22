@@ -1,0 +1,6 @@
+@layer app-styles {
+  .p-button-icon-only {
+    background-color: transparent;
+    border: none;
+  }
+}

@@ -4,21 +4,28 @@ import { ButtonComponent } from './components/button/button.component';
 import {ButtonModule} from 'primeng/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterLink} from '@angular/router';
+import { MenuComponent } from './components/menu/menu.component';
+import {Toast} from 'primeng/toast';
+import {Menu} from 'primeng/menu';
 
 
 
 @NgModule({
   declarations: [
-    ButtonComponent
+    ButtonComponent,
+    MenuComponent
   ],
   exports: [
-    ButtonComponent
+    ButtonComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
     ButtonModule,
     BrowserAnimationsModule,
     RouterLink,
+    Toast,
+    Menu,
   ],
 })
 export class SharedModule { }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,30 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'mongocar';
+  menuItens!: MenuItem[];
 
-  toggleDarkMode() {
-    const element = document.querySelector('html');
-    element ? element.classList.toggle('my-app-dark') : console.log('não carregou')
+  ngOnInit(): void {
+    this.menuItens = [
+      {
+        label: 'Options',
+        items: [
+          {
+            label: 'Refresh',
+            icon: 'pi pi-refresh'
+          },
+          {
+            label: 'Export',
+            icon: 'pi pi-upload'
+          }
+        ]
+      }
+    ];
   }
+
+  // toggleDarkMode() {
+  //   const element = document.querySelector('html');
+  //   element ? element.classList.toggle('my-app-dark') : console.log('não carregou')
+  // }
 }
