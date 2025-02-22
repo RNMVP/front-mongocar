@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from '../../shared/services/user.service';
+import {UserService} from '../../shared/services/user/user.service';
 import CarModel from '../../shared/models/CarModel';
 import {v4 as uuidv4} from 'uuid';
 import {NgForm} from '@angular/forms';
+import {ToastService} from '../../shared/services/toast/toast.service';
 
 @Component({
   selector: 'app-logon',
@@ -20,7 +21,8 @@ export class LogonComponent {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private toastService: ToastService,
   ) {}
 
   async onRegister(form: NgForm) {
@@ -40,12 +42,12 @@ export class LogonComponent {
       cars: new Set<CarModel>()
     }).subscribe({
       next: async (res) =>{
-        window.alert('Usuario salvo com sucesso!')
+        this.toastService.successfull('Usuario salvo com sucesso!', '')
         this.differentPassword = false;
         await this.router?.navigate(['/login']);
       },
       error: (err) => {
-        console.error('Error creating client:', err);
+        this.toastService.error(`Erro ao salvar usuario`, err.message)
         this.differentPassword = false;
         this.password = ''
         this.confirmPassword = ''

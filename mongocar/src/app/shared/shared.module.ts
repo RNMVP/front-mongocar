@@ -8,7 +8,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import {Toast} from 'primeng/toast';
 import {Menu} from 'primeng/menu';
 import {provideHttpClient} from '@angular/common/http';
-import {UserService} from './services/user.service';
+import {UserService} from './services/user/user.service';
+import {ToastService} from './services/toast/toast.service';
+import { ToastComponent } from './components/toast/toast/toast.component';
+import {MessageService} from 'primeng/api';
 
 
 
@@ -16,10 +19,12 @@ import {UserService} from './services/user.service';
   declarations: [
     ButtonComponent,
     MenuComponent,
+    ToastComponent,
   ],
   exports: [
     ButtonComponent,
-    MenuComponent
+    MenuComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +35,10 @@ import {UserService} from './services/user.service';
     Menu,
   ],
   providers: [
-    UserService,
     provideHttpClient(),
+    MessageService,
+    UserService,
+    ToastService,
   ]
 })
 export class SharedModule { }

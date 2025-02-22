@@ -27,4 +27,6 @@ export class ButtonComponent{
   ancora: string | undefined = undefined
   @Input()
   type: string  = 'button';
+  @Input()
+  disable: boolean | null = false;
 }
