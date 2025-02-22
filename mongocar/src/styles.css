@@ -5,17 +5,13 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
 }
 
 body {
   font-family: 'Orbitron', 'Roboto', Times, "Times New Roman", Georgia, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--p-surface-400);
+  background-color: var(--p-surface-500);
   color: var(--p-primary-color);
 }
 

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import {ButtonModule} from 'primeng/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterLink} from '@angular/router';
 
 
 
@@ -16,7 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     CommonModule,
     ButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterLink,
   ],
 })
 export class SharedModule { }

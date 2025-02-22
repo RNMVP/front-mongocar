@@ -1,5 +1,5 @@
 header {
-  background-color: #333;
+  background-color: var(--p-surface-950);
   color: #fff;
   padding: 20px 0;
   text-align: center;
@@ -13,30 +13,32 @@ header h1 {
 nav {
   display: flex;
   justify-content: center;
-  background-color: #444;
+  background-color: var(--p-surface-800);
   padding: 10px 0;
+  gap: 2vw;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1.1rem;
-}
-
-nav a:hover {
-  color: #ffcc00;
-}
-
-.hero {
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('../../../assets/carro-luxo-preto.webp');
   background-size: cover;
   background-position: center;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.hero {
+  position: relative; /* Necessário para posicionar o pseudo-elemento */
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--p-secondary-color);
   text-align: center;
 }
 
@@ -68,7 +70,7 @@ nav a:hover {
 }
 
 .service-card {
-  background-color: #fff;
+  background-color: var(--p-surface-900);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -82,7 +84,7 @@ nav a:hover {
 
 .service-card p {
   font-size: 1rem;
-  color: #666;
+  color: var(--p-primary-color);
 }
 
 .about p {

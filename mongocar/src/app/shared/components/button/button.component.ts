@@ -5,7 +5,6 @@ import ButtonOptions from './interfaces/BtnOptions';
   selector: 'app-button',
   standalone: false,
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
 })
 export class ButtonComponent{
 
@@ -13,9 +12,17 @@ export class ButtonComponent{
   label = ""
 
   @Input()
-  onClick = ()=> {}
+  onClick: Function = ()=> {}
   @Input()
   severity: ButtonOptions['severity'] = 'primary';
   @Input()
   variant: ButtonOptions['variant'] = undefined
+  @Input()
+  link: boolean = false;
+  @Input()
+  size: ButtonOptions['size'] = undefined
+  @Input()
+  styleClass: string | undefined = undefined
+  @Input()
+  ancora: string | undefined = undefined
 }
