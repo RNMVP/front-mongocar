@@ -1,0 +1,8 @@
+.card{
+  position: absolute;
+  right: 0;
+}
+.card>p-button{
+  z-index: 1003;
+}
+

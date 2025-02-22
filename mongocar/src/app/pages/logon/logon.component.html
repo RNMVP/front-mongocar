@@ -1,0 +1,66 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2>Registro</h2>
+    <form (ngSubmit)="onRegister()">
+      <div class="p-field">
+        <label for="name">Nome</label>
+        <input
+          id="name"
+          type="text"
+          pInputText
+          [(ngModel)]="name"
+          name="name"
+          required
+        />
+      </div>
+
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          pInputText
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="p-field">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          type="password"
+          pInputText
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="p-field">
+        <label for="confirmPassword">Confirmar Senha</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          pInputText
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+      </div>
+
+      <app-button
+        label="Registrar"
+        type="submit"
+      ></app-button>
+
+      <div class="opcao">
+        <p class="login-link">
+          Já tem uma conta?
+        </p>
+        <app-button style="color: var(--p-primary-inverse-color)" [link]="true" routerLink="/login" label="Faça login"></app-button>
+      </div>
+    </form>
+  </div>
+</div>

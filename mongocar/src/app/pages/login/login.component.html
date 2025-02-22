@@ -1,0 +1,46 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Login</h2>
+    <form (ngSubmit)="onLogin()">
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          pInputText
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="p-field">
+        <label for="password">Senha</label>
+        <input
+          id="password"
+          type="password"
+          pInputText
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <app-button
+        label="Entrar"
+        type="submit"
+        styleClass="p-button-primary"
+      ></app-button>
+
+      <div class="opcao">
+        <p class="register-link">
+          Não tem uma conta?
+        </p>
+        <div id="link-btn">
+          <app-button style="color: var(--p-primary-inverse-color)" [link]="true" routerLink="/registro"
+                      label="Registre-se"></app-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

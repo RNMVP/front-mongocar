@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,18 +12,23 @@ export class AppComponent implements OnInit {
   title = 'mongocar';
   menuItens!: MenuItem[];
 
+  constructor(private router: Router) {
+  }
+
   ngOnInit(): void {
     this.menuItens = [
       {
-        label: 'Options',
+        label: '',
         items: [
           {
-            label: 'Refresh',
-            icon: 'pi pi-refresh'
+            label: 'Login',
+            icon: 'pi pi-user-edit',
+            routerLink: '/login',
           },
           {
-            label: 'Export',
-            icon: 'pi pi-upload'
+            label: 'Registre-se',
+            icon: 'pi pi-user-plus',
+            routerLink: '/registro',
           }
         ]
       }

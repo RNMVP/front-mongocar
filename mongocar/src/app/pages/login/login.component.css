@@ -1,0 +1,47 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--p-surface-500);
+}
+
+.login-card {
+  background-color: var(--p-surface-0);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 1.5rem;
+  color: var(--p-primary-color);
+}
+
+.p-field {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.p-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--p-text-color);
+}
+
+.p-field input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--p-surface-300);
+  border-radius: 4px;
+}
+
+.register-link {
+  margin-top: 1rem;
+  color: var(--p-text-color);
+  text-align: left;
+}
+

@@ -1,6 +1,11 @@
 @layer app-styles {
-  .p-button-icon-only {
-    background-color: transparent;
-    border: none;
+  @layer p-menu {
+    .p-menu {
+      transform: translateX(-80%);
+    }
+  }
+
+  .p-button-link{
+    padding: 0;
   }
 }
