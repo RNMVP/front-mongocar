@@ -12,6 +12,7 @@ import {UserService} from './services/user/user.service';
 import {ToastService} from './services/toast/toast.service';
 import { ToastComponent } from './components/toast/toast/toast.component';
 import {MessageService} from 'primeng/api';
+import {AuthService} from './services/auth/auth.service';
 
 
 
@@ -39,6 +40,7 @@ import {MessageService} from 'primeng/api';
     MessageService,
     UserService,
     ToastService,
+    AuthService,
   ]
 })
 export class SharedModule { }

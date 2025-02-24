@@ -11,6 +11,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LogonComponent } from './pages/logon/logon.component';
 import {FormsModule} from '@angular/forms';
 import {InputText} from 'primeng/inputtext';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {InputText} from 'primeng/inputtext';
     HomeComponent,
     ServicesComponent,
     LoginComponent,
-    LogonComponent
+    LogonComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

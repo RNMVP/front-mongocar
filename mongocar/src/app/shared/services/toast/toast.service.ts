@@ -5,22 +5,22 @@ import {MessageService} from 'primeng/api';
   providedIn: 'root'
 })
 export class ToastService {
-
+  private readonly defaultLife = 3000
   constructor(private messageService: MessageService) {}
-  successfull(summary: string, message: string) {
+  successful(summary: string, message: string, life: number = this.defaultLife) {
     this.messageService.add({
       severity: 'success',
       summary,
       detail: message,
-      life: 5000
+      life
     });
   }
-  error(summary: string, message: string){
+  error(summary: string, message: string, life: number = this.defaultLife) {
     this.messageService.add({
       severity: 'error',
       summary,
       detail: message,
-      life: 5000
+      life
     })
   }
 }

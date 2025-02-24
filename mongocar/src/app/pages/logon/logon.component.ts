@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../../shared/services/user/user.service';
-import CarModel from '../../shared/models/CarModel';
+import CarModel from '../../shared/models/entities/CarModel';
 import {v4 as uuidv4} from 'uuid';
 import {NgForm} from '@angular/forms';
 import {ToastService} from '../../shared/services/toast/toast.service';
@@ -42,7 +42,7 @@ export class LogonComponent {
       cars: new Set<CarModel>()
     }).subscribe({
       next: async (res) =>{
-        this.toastService.successfull('Usuario salvo com sucesso!', '')
+        this.toastService.successful('Usuario salvo com sucesso!', '')
         this.differentPassword = false;
         await this.router?.navigate(['/login']);
       },
