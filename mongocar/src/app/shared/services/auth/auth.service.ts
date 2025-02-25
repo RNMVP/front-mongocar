@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {jwtDecode} from 'jwt-decode';
 import TokenModel from '../../models/TokenModel';
 import {genericJwtKey} from '../../../tests/mocks/mocks';
+import {of} from 'rxjs';
 
 interface Credentials {
   username: string;
@@ -19,8 +20,8 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login = async (credentials: Credentials) => {
-    this.saveAccessToken(genericJwtKey)
+  login = (credentials: Credentials) => {
+    return of(this.saveAccessToken(genericJwtKey))
 
 
     // this.http.post(this.baseUrl, credentials).subscribe({
