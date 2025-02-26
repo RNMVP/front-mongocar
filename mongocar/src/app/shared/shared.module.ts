@@ -25,11 +25,12 @@ import {ContextService} from './services/context/context.service';
     ToastComponent,
     HeaderComponent,
   ],
-  exports: [
-    ButtonComponent,
-    MenuComponent,
-    ToastComponent
-  ],
+    exports: [
+        ButtonComponent,
+        MenuComponent,
+        ToastComponent,
+        HeaderComponent
+    ],
   imports: [
     CommonModule,
     ButtonModule,

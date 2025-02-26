@@ -1,1 +1,19 @@
-<p>header works!</p>
+<header>
+  <a class="logo" routerLink="/">Meu Site</a>
+
+  <nav *ngIf="isLoggedIn()">
+    <a *ngIf="isCustomer()" href="/customer-dashboard">Dashboard</a>
+    <a *ngIf="isEmployee()" href="/employee-dashboard">Painel Admin</a>
+    <a routerLink="/profile">Perfil</a>
+  </nav>
+
+  <div class="user-info" *ngIf="isLoggedIn()">
+    <span>Olá, {{ user?.name }}</span>
+    <button class="logout-button" (click)="onLogout()">Logout</button>
+  </div>
+
+  <div *ngIf="!isLoggedIn()">
+    <span>Visitante</span>
+    <a routerLink="/login">Login</a>
+  </div>
+</header>

@@ -2,8 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ContextService} from '../../services/context/context.service';
 import CustomerModel from '../../models/entities/CustomerModel';
 import EmployeeModel from '../../models/entities/EmployeeModel';
-import UserModel from '../../models/entities/UserModel';
 import {Subscription} from 'rxjs';
+import UserModel from '../../models/entities/UserModel';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ import {Subscription} from 'rxjs';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  user!: CustomerModel | EmployeeModel | null
+  user!: UserModel | null
   subscription!: Subscription;
 
   constructor(private contextService: ContextService) {
@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.contextService.user$.subscribe({
-      next: (user: CustomerModel | EmployeeModel | null) => {
+      next: (user: UserModel | null) => {
+        console.log('Usuario loggado:', user);
         this.user = user;
       }
     })

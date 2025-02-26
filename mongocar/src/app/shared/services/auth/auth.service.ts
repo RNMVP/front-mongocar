@@ -5,6 +5,7 @@ import {jwtDecode} from 'jwt-decode';
 import TokenModel from '../../models/TokenModel';
 import {genericJwtKey} from '../../../tests/mocks/mocks';
 import {of} from 'rxjs';
+import CustomerModel from '../../models/entities/CustomerModel';
 
 interface Credentials {
   username: string;
@@ -21,8 +22,12 @@ export class AuthService {
   }
 
   login = (credentials: Credentials) => {
-    return of(this.saveAccessToken(genericJwtKey))
-
+    const returnable = {
+      user: new CustomerModel('jorge', 'jorgeemail', '123456'),
+      token: genericJwtKey
+    }
+    this.saveAccessToken(genericJwtKey)
+    return of(returnable)
 
     // this.http.post(this.baseUrl, credentials).subscribe({
     //   next: (response:any) => {

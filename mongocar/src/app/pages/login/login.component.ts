@@ -28,7 +28,7 @@ export class LoginComponent {
         if (this.authService.authenticate()) {
           this.toastService.successful('Sucesso', 'Seja bem vindo')
           this.contextService.setUser(response.user)
-          console.log('Usuario logado:', response.user)
+          console.log('Response:', response)
           this.router.navigate(['/home']);
         } else
             this.toastService.error('Token inválido', 'contacte o suporte!')
