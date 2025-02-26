@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import CustomerModel from '../../models/entities/CustomerModel';
-import EmployeeModel from '../../models/entities/EmployeeModel';
 import UserModel from '../../models/entities/UserModel';
 
 @Injectable({
@@ -12,15 +10,18 @@ export class ContextService {
   private userSubject = new BehaviorSubject<UserModel | null>(null);
   user$ = this.userSubject.asObservable();
 
-  setUser(user: any) {
+  setUser(user: UserModel) {
     this.userSubject.next(user);
+    localStorage.setItem('user', JSON.stringify({...user, password: undefined, email: undefined}));
   }
 
   getCurrentUser() {
-    return this.userSubject.value;
+    const jsonUser = localStorage.getItem('user');
+    return jsonUser ? JSON.parse(jsonUser) : null;
   }
 
   clearUser() {
     this.userSubject.next(null);
+    localStorage.removeItem('user');
   }
 }

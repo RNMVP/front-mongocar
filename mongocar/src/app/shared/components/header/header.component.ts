@@ -19,9 +19,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    const storedUser = this.contextService.getCurrentUser();
+    if(storedUser){
+      this.contextService.setUser(storedUser);
+    }
+
     this.subscription = this.contextService.user$.subscribe({
       next: (user: UserModel | null) => {
-        console.log('Usuario loggado:', user);
         this.user = user;
       }
     })

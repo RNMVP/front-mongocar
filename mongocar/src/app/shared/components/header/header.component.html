@@ -2,9 +2,9 @@
   <a class="logo" routerLink="/">Meu Site</a>
 
   <nav *ngIf="isLoggedIn()">
-    <a *ngIf="isCustomer()" href="/customer-dashboard">Dashboard</a>
-    <a *ngIf="isEmployee()" href="/employee-dashboard">Painel Admin</a>
-    <a routerLink="/profile">Perfil</a>
+    <app-button *ngIf="isCustomer()" routerLink="/customer-dashboard" label="Dashboard" severity="contrast"></app-button>
+    <app-button *ngIf="isEmployee()" routerLink="/employee-dashboard" label="Painel Admin" severity="contrast"></app-button>
+    <app-button routerLink="/profile" label="Perfil" severity="contrast"></app-button>
   </nav>
 
   <div class="user-info" *ngIf="isLoggedIn()">
