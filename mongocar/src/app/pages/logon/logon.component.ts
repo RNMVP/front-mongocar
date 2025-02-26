@@ -39,7 +39,8 @@ export class LogonComponent {
       name: this.name,
       email: this.email,
       password: this.password,
-      cars: new Set<CarModel>()
+      cars: new Set<CarModel>(),
+      type: 'customer'
     }).subscribe({
       next: async (res) =>{
         this.toastService.successful('Usuario salvo com sucesso!', '')

@@ -4,6 +4,9 @@ import {HttpClient} from '@angular/common/http';
 import {jwtDecode} from 'jwt-decode';
 import TokenModel from '../../models/TokenModel';
 import {genericJwtKey} from '../../../tests/mocks/mocks';
+import {of} from 'rxjs';
+import CustomerToCreate from '../../models/entities/CustomerToCreate';
+import CustomerSubject from '../../models/CustomerSubject';
 
 interface Credentials {
   username: string;
@@ -19,9 +22,13 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  login = async (credentials: Credentials) => {
+  login = (credentials: Credentials) => {
+    const returnable = {
+      user: new CustomerSubject('jorge'),
+      token: genericJwtKey
+    }
     this.saveAccessToken(genericJwtKey)
-
+    return of(returnable)
 
     // this.http.post(this.baseUrl, credentials).subscribe({
     //   next: (response:any) => {
@@ -40,7 +47,6 @@ export class AuthService {
   logout = async () => {
     this.http.get(`${this.baseUrl}/logout`).subscribe({
       next: (response) => {
-        this.removeAccessToken()
         console.log('logout da api realizado com sucesso!')
       },
       error: (error) => {

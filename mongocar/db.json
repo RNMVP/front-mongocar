@@ -58,6 +58,13 @@
       "email": "exemplo@gmail.com",
       "password": "@Renan123",
       "cars": {}
+    },
+    {
+      "id": "2d49c773-b4e4-45ed-ac06-2e8ffebbdd15",
+      "name": "Renan Nnes Viana",
+      "email": "esperando.seu.email@gmail.com",
+      "password": "Nat_1234",
+      "cars": {}
     }
   ],
   "employees": [

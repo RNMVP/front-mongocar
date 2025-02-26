@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
-import CustomerModel from '../../models/entities/CustomerModel';
-import EmployeeModel from '../../models/entities/EmployeeModel';
+import CustomerToCreate from '../../models/entities/CustomerToCreate';
+import EmployeeToCreate from '../../models/entities/EmployeeToCreate';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class UserService {
   baseUrl = environment.apiUrl;
   jsonServerUrl = "http://localhost:3000" //json-server generate a server in port 3000. use --port to define other
 
-  createClient = (newCustomer: CustomerModel) => {
+  createClient = (newCustomer: CustomerToCreate) => {
     // return this.http.post(`${this.baseUrl}/customer`, newCustomer);
     return this.http.post(`${this.jsonServerUrl}/customers`, newCustomer);
   }
 
-  createEmployee = (newEmployee: EmployeeModel) => {
+  createEmployee = (newEmployee: EmployeeToCreate) => {
     // return this.http.post(`${this.baseUrl}/employee`, newEmployee);
     return this.http.post(`${this.jsonServerUrl}/employees`, newEmployee);
   }

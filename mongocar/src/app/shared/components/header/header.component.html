@@ -1,0 +1,19 @@
+<header>
+  <a class="logo" routerLink="/">Meu Site</a>
+
+  <nav *ngIf="isLoggedIn()">
+    <app-button *ngIf="isCustomer()" routerLink="/customer-dashboard" label="Dashboard" severity="contrast"></app-button>
+    <app-button *ngIf="isEmployee()" routerLink="/employee-dashboard" label="Painel Admin" severity="contrast"></app-button>
+    <app-button routerLink="/profile" label="Perfil" severity="contrast"></app-button>
+  </nav>
+
+  <div class="user-info" *ngIf="isLoggedIn()">
+    <span>Olá, {{ user?.name }}</span>
+    <button class="logout-button" (click)="onLogout()">Logout</button>
+  </div>
+
+  <div *ngIf="!isLoggedIn()">
+    <span>Visitante</span>
+    <a routerLink="/login">Login</a>
+  </div>
+</header>

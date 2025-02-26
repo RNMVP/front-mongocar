@@ -1,0 +1,82 @@
+/* Estilo base do header */
+header {
+  background-color: #2c3e50; /* Cor de fundo escura */
+  color: #ecf0f1; /* Cor do texto */
+  padding: 1rem 2rem; /* Espaçamento interno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Logo ou nome do site */
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e74c3c; /* Cor destacada para o logo */
+  text-decoration: none;
+}
+
+/* Navegação */
+header nav {
+  display: flex;
+  gap: 1.5rem; /* Espaçamento entre os links */
+}
+
+header nav a {
+  color: #ecf0f1; /* Cor dos links */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease; /* Transição suave */
+}
+
+header nav a:hover {
+  color: #e74c3c; /* Cor ao passar o mouse */
+}
+
+/* Botão de logout */
+header .logout-button {
+  background-color: #e74c3c; /* Cor de destaque */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+header .logout-button:hover {
+  background-color: #c0392b; /* Cor ao passar o mouse */
+}
+
+/* Estilo para usuário logado */
+header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .user-info span {
+  font-size: 1rem;
+  color: #ecf0f1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  header nav {
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  header .logout-button {
+    margin-top: 1rem;
+  }
+}
