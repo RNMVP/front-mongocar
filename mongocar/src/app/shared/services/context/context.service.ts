@@ -12,7 +12,7 @@ export class ContextService {
 
   setUser(user: UserModel) {
     this.userSubject.next(user);
-    localStorage.setItem('user', JSON.stringify({...user, password: undefined, email: undefined}));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   getCurrentUser() {

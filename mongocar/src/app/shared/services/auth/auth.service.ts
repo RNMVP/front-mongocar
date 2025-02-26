@@ -5,7 +5,8 @@ import {jwtDecode} from 'jwt-decode';
 import TokenModel from '../../models/TokenModel';
 import {genericJwtKey} from '../../../tests/mocks/mocks';
 import {of} from 'rxjs';
-import CustomerModel from '../../models/entities/CustomerModel';
+import CustomerToCreate from '../../models/entities/CustomerToCreate';
+import CustomerSubject from '../../models/CustomerSubject';
 
 interface Credentials {
   username: string;
@@ -23,7 +24,7 @@ export class AuthService {
 
   login = (credentials: Credentials) => {
     const returnable = {
-      user: new CustomerModel('jorge', 'jorgeemail', '123456'),
+      user: new CustomerSubject('jorge'),
       token: genericJwtKey
     }
     this.saveAccessToken(genericJwtKey)
@@ -46,7 +47,6 @@ export class AuthService {
   logout = async () => {
     this.http.get(`${this.baseUrl}/logout`).subscribe({
       next: (response) => {
-        this.removeAccessToken()
         console.log('logout da api realizado com sucesso!')
       },
       error: (error) => {
