@@ -5,10 +5,14 @@ export default class CustomerSubject implements UserModel{
   name: string;
   type: 'customer' | 'employee';
 
-  constructor(name: string) {
+  constructor(id: string, name: string) {
     this.name = name;
     this.type = 'customer';
-    this.id = null;
+    this.id = id;
+  }
+
+  static fromJson(json: any): CustomerSubject {
+    return new CustomerSubject(json.id || null, json.name || '');
   }
 
 }

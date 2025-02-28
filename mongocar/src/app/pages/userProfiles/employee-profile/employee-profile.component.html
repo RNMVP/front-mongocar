@@ -1,0 +1,19 @@
+<div class="profile-container" *ngIf="employee$ | async as employee">
+  <div class="profile-content">
+    <div class="user-info">
+      <h2>Informações Pessoais</h2>
+      <div class="info-item">
+        <span class="label">Nome:</span>
+        <span class="value">{{ employee?.name }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Cargo:</span>
+        <span class="value">{{ employee?.position }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Salário:</span>
+        <span class="value">{{ employee?.salary | currency:'BRL':'symbol':'1.2-2' }}</span>
+      </div>
+    </div>
+  </div>
+</div>

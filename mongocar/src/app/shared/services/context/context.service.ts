@@ -7,7 +7,7 @@ import UserModel from '../../models/entities/UserModel';
 })
 export class ContextService {
 
-  private userSubject = new BehaviorSubject<UserModel | null>(null);
+  private userSubject = new BehaviorSubject<UserModel | null>(this.getCurrentUser());
   user$ = this.userSubject.asObservable();
 
   setUser(user: UserModel) {

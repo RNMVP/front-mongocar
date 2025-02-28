@@ -7,6 +7,7 @@ import {genericJwtKey} from '../../../tests/mocks/mocks';
 import {of} from 'rxjs';
 import CustomerToCreate from '../../models/entities/CustomerToCreate';
 import CustomerSubject from '../../models/CustomerSubject';
+import EmployeeSubject from '../../models/EmployeeSubject';
 
 interface Credentials {
   username: string;
@@ -23,8 +24,9 @@ export class AuthService {
   }
 
   login = (credentials: Credentials) => {
+    const mockedUser = new EmployeeSubject('1','John Smith', 5000, 'pinter')
     const returnable = {
-      user: new CustomerSubject('jorge'),
+      user: mockedUser,
       token: genericJwtKey
     }
     this.saveAccessToken(genericJwtKey)

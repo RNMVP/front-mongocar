@@ -14,11 +14,11 @@
 
     <div class="cars-list">
       <h2>Carros Registrados</h2>
-      <div *ngIf="user?.cars && user.cars.size > 0; else noCars">
-        <div class="car-item" *ngFor="let car of user?.cars">
-          <span class="car-model">{{ car.model }}</span>
-          <span class="car-year">{{ car.year }}</span>
-          <span class="car-license">{{ car.licensePlate }}</span>
+      <div *ngIf="cars && cars.length > 0; else noCars">
+        <div class="car-item" *ngFor="let car of cars">
+          <span class="car-model">{{ car.brand }}</span>
+          <span class="car-year">{{ car.color }}</span>
+          <span class="car-license">{{ car.carPlate }}</span>
         </div>
       </div>
       <ng-template #noCars>
