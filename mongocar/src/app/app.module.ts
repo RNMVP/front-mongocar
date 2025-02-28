@@ -12,6 +12,8 @@ import { LogonComponent } from './pages/logon/logon.component';
 import {FormsModule} from '@angular/forms';
 import {InputText} from 'primeng/inputtext';
 import { AboutComponent } from './pages/about/about.component';
+import { CustomerProfileComponent } from './pages/userProfiles/customer-profile/customer-profile.component';
+import { EmployeeProfileComponent } from './pages/userProfiles/employee-profile/employee-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AboutComponent } from './pages/about/about.component';
     ServicesComponent,
     LoginComponent,
     LogonComponent,
-    AboutComponent
+    AboutComponent,
+    CustomerProfileComponent,
+    EmployeeProfileComponent
   ],
   imports: [
     BrowserModule,

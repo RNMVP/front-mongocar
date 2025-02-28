@@ -27,10 +27,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const storedUser: UserModel = this.contextService.getCurrentUser();
     if(storedUser){
-      if(storedUser.type === 'customer')
-        this.contextService.setUser(new CustomerSubject(storedUser.name));
+      if(storedUser.type === 'customer') {
+        const customer = CustomerSubject.fromJson({id: storedUser.id, name: storedUser.name})
+        this.contextService.setUser(customer);
+      }
       else if(storedUser.type === 'employee'){
-        this.contextService.setUser(new EmployeeSubject(storedUser.name));
+        this.contextService.setUser(new EmployeeSubject(storedUser.id, storedUser.name, (storedUser as EmployeeSubject).salary, (storedUser as EmployeeSubject).position));
       }
     }
 
@@ -56,6 +58,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   isLoggedIn(): boolean {
     return this.user !== null;
+  }
+
+  get profileRouterLink(): string {
+    if (this.user instanceof EmployeeSubject) {
+      return '/perfil-funcionario'; // Rota para employee
+    } else if (this.user instanceof CustomerSubject) {
+      return '/perfil-cliente'; // Rota para customer
+    }
+
+    return '/'; // Rota padrão (caso o usuário não esteja logado)
   }
 
   ngOnDestroy() {

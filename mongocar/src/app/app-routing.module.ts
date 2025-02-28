@@ -5,6 +5,8 @@ import {ServicesComponent} from './pages/services/services.component';
 import {LoginComponent} from './pages/login/login.component';
 import {LogonComponent} from './pages/logon/logon.component';
 import {AboutComponent} from './pages/about/about.component';
+import {CustomerProfileComponent} from './pages/userProfiles/customer-profile/customer-profile.component';
+import {EmployeeProfileComponent} from './pages/userProfiles/employee-profile/employee-profile.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'sobrenos', component: AboutComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: LogonComponent},
+  {path: 'perfil-cliente', component: CustomerProfileComponent},
+  {path: 'perfil-funcionario', component: EmployeeProfileComponent},
   //{ path: 'sobre', component: SobreComponent },
   //{ path: 'contato', component: ContatoComponent },
   {path: '', redirectTo: '/home', pathMatch: 'full'},

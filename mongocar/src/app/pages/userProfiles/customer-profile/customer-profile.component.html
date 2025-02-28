@@ -1,0 +1,29 @@
+<div class="profile-container">
+  <div class="profile-content">
+    <div class="user-info">
+      <h2>Informações Pessoais</h2>
+      <div class="info-item">
+        <span class="label">Nome:</span>
+        <span class="value">{{ user?.name }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">E-mail:</span>
+        <span class="value">{{ user?.email }}</span>
+      </div>
+    </div>
+
+    <div class="cars-list">
+      <h2>Carros Registrados</h2>
+      <div *ngIf="cars && cars.length > 0; else noCars">
+        <div class="car-item" *ngFor="let car of cars">
+          <span class="car-model">{{ car.brand }}</span>
+          <span class="car-year">{{ car.color }}</span>
+          <span class="car-license">{{ car.carPlate }}</span>
+        </div>
+      </div>
+      <ng-template #noCars>
+        <p>Nenhum carro registrado.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
