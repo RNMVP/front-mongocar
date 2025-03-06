@@ -15,6 +15,7 @@ import {ToastService} from '../../shared/services/toast/toast.service';
 export class LogonComponent {
   name!: string;
   email!: string;
+  telephone!: string;
   password!: string;
   confirmPassword!: string;
   differentPassword: boolean = false;
@@ -34,12 +35,12 @@ export class LogonComponent {
       return;
     }
 
-    this.userService?.createClient({
+    this.userService?.createCustomer({
       id: uuidv4(),
       name: this.name,
       email: this.email,
+      telephone: this.telephone,
       password: this.password,
-      cars: new Set<CarModel>(),
       type: 'customer'
     }).subscribe({
       next: async (res) =>{

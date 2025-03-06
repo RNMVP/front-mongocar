@@ -3,6 +3,8 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth/auth.service';
 import {ToastService} from '../../shared/services/toast/toast.service';
 import {ContextService} from '../../shared/services/context/context.service';
+import CustomerFromApi from '../../shared/models/entities/fromApi/CustomerFromApi';
+import MapUserFromApi from '../../helpers/MapUserFromApi';
 
 @Component({
   selector: 'app-login',
@@ -26,16 +28,23 @@ export class LoginComponent {
     this.authService.login({username: this.email, password: this.password}).subscribe({
       next: (response: any) => {
         if (this.authService.authenticate()) {
-          this.toastService.successful('Sucesso', 'Seja bem vindo')
-          this.contextService.setUser(response.user)
+
+          const userToStore = MapUserFromApi(response.value)
+          if(userToStore === null){
+            this.toastService.error('Algo deu errado!', 'contacte o suporte!')
+            return
+          }
+          this.contextService.setUser(userToStore)
+
           console.log('Response:', response)
+          this.toastService.successful('Sucesso', 'Seja bem vindo')
           this.router.navigate(['/home']);
         } else
             this.toastService.error('Token inválido', 'contacte o suporte!')
       },
       error: error => {
         console.error('Erro ao fazer login:', error);
-        this.toastService.error('Credenciais inválidas', 'email ou senha incorretos')
+        this.toastService.error('Credenciais inválidas', error.errors)
       }
     });
   }

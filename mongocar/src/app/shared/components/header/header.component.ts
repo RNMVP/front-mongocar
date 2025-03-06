@@ -1,7 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ContextService} from '../../services/context/context.service';
-import CustomerToCreate from '../../models/entities/CustomerToCreate';
-import EmployeeToCreate from '../../models/entities/EmployeeToCreate';
 import {Subscription} from 'rxjs';
 import UserModel from '../../models/entities/UserModel';
 import {AuthService} from '../../services/auth/auth.service';
