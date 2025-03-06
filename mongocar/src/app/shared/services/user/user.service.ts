@@ -12,35 +12,32 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   baseUrl = environment.apiUrl;
-  jsonServerUrl = "http://localhost:3000" //json-server generate a server in port 3000. use --port to define other
 
-  createClient = (newCustomer: CustomerToCreate) => {
-    // return this.http.post(`${this.baseUrl}/customer`, newCustomer);
-    return this.http.post(`${this.jsonServerUrl}/customers`, newCustomer);
-  }
-
-  createEmployee = (newEmployee: EmployeeToCreate) => {
-    // return this.http.post(`${this.baseUrl}/employee`, newEmployee);
-    return this.http.post(`${this.jsonServerUrl}/employees`, newEmployee);
+  // Customer
+  createCustomer = (newCustomer: CustomerToCreate) => {
+    return this.http.post(`${this.baseUrl}/customer`, newCustomer);
   }
 
   getCustomer = (customerId: string) => {
-    // return this.http.get(`${this.baseUrl}/customer/${customerId}`);
-    return this.http.get(`${this.jsonServerUrl}/customers/${customerId}`);
-  }
-
-  getEmployee = (employeeId: string) => {
-    // return this.http.get(`${this.baseUrl}/employee/${employeeId}`);
-    return this.http.get(`${this.jsonServerUrl}/employees/${employeeId}`);
-  }
-
-  getAllEmployees = () => {
-    // return this.http.get(`${this.baseUrl}/employee/all`);
-    return this.http.get(`${this.jsonServerUrl}/employees`);
+    return this.http.get(`${this.baseUrl}/customer/${customerId}`);
   }
 
   getAllCustomers = () => {
-    // return this.http.get(`${this.baseUrl}/customer/all`);
-    return this.http.get(`${this.jsonServerUrl}/customers`);
+    return this.http.get(`${this.baseUrl}/customer`);
+  }
+
+ //////////////////////========//////////////================////////////////
+
+  // Employee
+  createEmployee = (newEmployee: EmployeeToCreate) => {
+    return this.http.post(`${this.baseUrl}/employee`, newEmployee);
+  }
+
+  getEmployee = (employeeId: string) => {
+    return this.http.get(`${this.baseUrl}/employee/${employeeId}`);
+  }
+
+  getAllEmployees = () => {
+    return this.http.get(`${this.baseUrl}/employee`);
   }
 }

@@ -4,10 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {jwtDecode} from 'jwt-decode';
 import TokenModel from '../../models/TokenModel';
 import {genericJwtKey} from '../../../tests/mocks/mocks';
-import {of} from 'rxjs';
-import CustomerToCreate from '../../models/entities/CustomerToCreate';
-import CustomerSubject from '../../models/CustomerSubject';
-import EmployeeSubject from '../../models/EmployeeSubject';
+import {map} from 'rxjs';
 
 interface Credentials {
   username: string;
@@ -24,13 +21,15 @@ export class AuthService {
   }
 
   login = (credentials: Credentials) => {
-    const mockedUser = new EmployeeSubject('1','John Smith', 5000, 'pinter')
-    const returnable = {
-      user: mockedUser,
-      token: genericJwtKey
-    }
+    this.http.post(`${this.baseUrl}/login`, credentials);
+    const mockedUser = this.http.get(`${this.baseUrl}/employee/67c99aff915bbffc1eded639`).pipe(
+      map((response: any) => {
+        response.value.UserType = 'employee'
+        return response;
+      })
+    );
     this.saveAccessToken(genericJwtKey)
-    return of(returnable)
+    return mockedUser
 
     // this.http.post(this.baseUrl, credentials).subscribe({
     //   next: (response:any) => {

@@ -34,7 +34,7 @@ export class CustomerProfileComponent implements OnInit {
   getUser = () => {
     this.userService.getCustomer(this.userId).subscribe({
       next: (response: any) => {
-        this.user = response;
+        this.user = response.value;
         this.cars = Array.from(this.user.cars)
       },
       error: (error: any) => {
