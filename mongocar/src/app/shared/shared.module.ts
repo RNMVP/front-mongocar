@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/primeng/button/button.component';
 import {ButtonModule} from 'primeng/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import { MenuComponent } from './components/primeng/menu/menu.component';
 import {Toast} from 'primeng/toast';
 import {Menu} from 'primeng/menu';
@@ -15,6 +15,8 @@ import {MessageService} from 'primeng/api';
 import {AuthService} from './services/auth/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import {ContextService} from './services/context/context.service';
+import { TabComponent } from './components/primeng/tab/tab.component';
+import {Tab, TabList, Tabs} from 'primeng/tabs';
 
 
 
@@ -24,13 +26,15 @@ import {ContextService} from './services/context/context.service';
     MenuComponent,
     ToastComponent,
     HeaderComponent,
+    TabComponent,
   ],
-    exports: [
-        ButtonComponent,
-        MenuComponent,
-        ToastComponent,
-        HeaderComponent
-    ],
+  exports: [
+    ButtonComponent,
+    MenuComponent,
+    ToastComponent,
+    HeaderComponent,
+    TabComponent
+  ],
   imports: [
     CommonModule,
     ButtonModule,
@@ -38,6 +42,10 @@ import {ContextService} from './services/context/context.service';
     RouterLink,
     Toast,
     Menu,
+    RouterOutlet,
+    Tabs,
+    TabList,
+    Tab,
   ],
   providers: [
     provideHttpClient(),

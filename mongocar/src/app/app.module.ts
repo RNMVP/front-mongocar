@@ -14,6 +14,8 @@ import {InputText} from 'primeng/inputtext';
 import { AboutComponent } from './pages/about/about.component';
 import { CustomerProfileComponent } from './pages/userProfiles/customer-profile/customer-profile.component';
 import { EmployeeProfileComponent } from './pages/userProfiles/employee-profile/employee-profile.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { CreateEmployeeComponent } from './pages/admin/tabs/create-employee/create-employee.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { EmployeeProfileComponent } from './pages/userProfiles/employee-profile/
     LogonComponent,
     AboutComponent,
     CustomerProfileComponent,
-    EmployeeProfileComponent
+    EmployeeProfileComponent,
+    AdminComponent,
+    CreateEmployeeComponent
   ],
   imports: [
     BrowserModule,
