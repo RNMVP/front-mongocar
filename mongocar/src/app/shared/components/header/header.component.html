@@ -3,7 +3,7 @@
 
   <nav *ngIf="isLoggedIn()">
     <app-button *ngIf="isCustomer()" routerLink="/customer-dashboard" label="Dashboard" severity="contrast"></app-button>
-    <app-button *ngIf="isEmployee()" routerLink="/employee-dashboard" label="Painel Admin" severity="contrast"></app-button>
+    <app-button *ngIf="isEmployee()" routerLink="/dashboard" label="Painel Admin" severity="contrast"></app-button>
     <app-button [routerLink]="profileRouterLink" label="Perfil" severity="contrast"></app-button>
   </nav>
 

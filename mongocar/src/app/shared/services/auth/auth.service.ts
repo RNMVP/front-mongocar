@@ -22,7 +22,7 @@ export class AuthService {
 
   login = (credentials: Credentials) => {
     this.http.post(`${this.baseUrl}/login`, credentials);
-    const mockedUser = this.http.get(`${this.baseUrl}/employee/67c99aff915bbffc1eded639`).pipe(
+    const mockedUser = this.http.get(`${this.baseUrl}/employee/67caf82eb53a77ec2376fc40`).pipe(
       map((response: any) => {
         response.value.UserType = 'employee'
         return response;

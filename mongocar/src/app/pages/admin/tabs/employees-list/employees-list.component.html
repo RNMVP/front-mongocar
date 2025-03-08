@@ -11,7 +11,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-employee>
       <tr>
-        <td>{{ employee.name }}</td>
+        <td><app-button [link]="true" routerLink="RotaParaDetalhesDoEmpregado" label="{{ employee.name }}"></app-button></td>
         <td>{{ employee.position }}</td>
         <td>{{ employee.salary | currency:'BRL':'symbol':'1.2-2' }}</td>
         <td>
