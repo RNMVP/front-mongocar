@@ -3,8 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-*, *:before, *:after {
-  box-sizing: border-box;
+html{
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 body {
@@ -13,6 +15,7 @@ body {
   padding: 0;
   background-color: var(--p-surface-500);
   color: var(--p-primary-color);
+  height: 100%;
 }
 
 

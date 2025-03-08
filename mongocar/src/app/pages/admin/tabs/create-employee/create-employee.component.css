@@ -1,0 +1,66 @@
+/* Estilo base do container */
+.add-employee-container {
+  max-width: 800px;
+  width: 80vw;
+  height: min-content;
+  padding: 20px;
+  background-color: var(--p-surface-300);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da página */
+.add-employee-container h1 {
+  font-size: 24px;
+  color: var(--p-text-title);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Formulário */
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Grupo de campos do formulário */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: var(--p-text-label);
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #3498db;
+}
+
+/* Botão de envio */
+.submit-button {
+  background-color: #3498db;
+  color: var(--p-primary-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+}
