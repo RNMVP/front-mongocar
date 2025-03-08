@@ -1,8 +1,7 @@
 /* Estilo base do container */
-.add-employee-container {
-  max-width: 800px;
-  width: 80vw;
-  height: min-content;
+.employee-list-container {
+  max-width: 1200px;
+  width:80vw;
   padding: 20px;
   background-color: var(--p-surface-300);
   border-radius: 10px;
@@ -10,21 +9,31 @@
 }
 
 /* Título da página */
-.add-employee-container h1 {
+.employee-list-container h1 {
   font-size: 24px;
-  color: var(--p-text-title);
+  color: #2c3e50;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Formulário */
-.employee-form {
+/* Estilo para os botões de ação */
+.p-button-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+
+.p-button-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+/* Estilo para o formulário de edição */
+.edit-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Grupo de campos do formulário */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -33,7 +42,7 @@
 
 .form-group label {
   font-weight: bold;
-  color: var(--p-text-label);
+  color: #34495e;
 }
 
 .form-group input {
@@ -49,18 +58,9 @@
   border-color: #3498db;
 }
 
-/* Botão de envio */
-.submit-button {
-  background-color: #3498db;
-  color: var(--p-primary-color);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-  background-color: #2980b9;
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }

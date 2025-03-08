@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
-import CustomerToCreate from '../../models/entities/CustomerToCreate';
-import EmployeeToCreate from '../../models/entities/EmployeeToCreate';
+import Customer from '../../models/entities/Customer';
+import Employee from '../../models/entities/Employee';
+import EmployeeToEdit from '../../models/EmployeeToEdit';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UserService {
   baseUrl = environment.apiUrl;
 
   // Customer
-  createCustomer = (newCustomer: CustomerToCreate) => {
+  createCustomer = (newCustomer: Customer) => {
     return this.http.post(`${this.baseUrl}/customer`, newCustomer);
   }
 
@@ -29,7 +30,7 @@ export class UserService {
  //////////////////////========//////////////================////////////////
 
   // Employee
-  createEmployee = (newEmployee: EmployeeToCreate) => {
+  createEmployee = (newEmployee: Employee) => {
     return this.http.post(`${this.baseUrl}/employee`, newEmployee);
   }
 
@@ -39,5 +40,12 @@ export class UserService {
 
   getAllEmployees = () => {
     return this.http.get(`${this.baseUrl}/employee`);
+  }
+  updateEmployee = (employeeToUpdate: EmployeeToEdit) => {
+    return this.http.put(`${this.baseUrl}/employee`, employeeToUpdate);
+  }
+
+  deleteEmployee = (id: string) => {
+    return this.http.delete(`${this.baseUrl}/employee/${id}`);
   }
 }

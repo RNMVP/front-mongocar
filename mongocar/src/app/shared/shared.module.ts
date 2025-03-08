@@ -11,12 +11,13 @@ import {provideHttpClient} from '@angular/common/http';
 import {UserService} from './services/user/user.service';
 import {ToastService} from './services/toast/toast.service';
 import { ToastComponent } from './components/primeng/toast/toast.component';
-import {MessageService} from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 import {AuthService} from './services/auth/auth.service';
 import { HeaderComponent } from './components/header/header.component';
 import {ContextService} from './services/context/context.service';
 import { TabComponent } from './components/primeng/tab/tab.component';
 import {Tab, TabList, Tabs} from 'primeng/tabs';
+import {DialogModule} from 'primeng/dialog';
 
 
 
@@ -39,6 +40,7 @@ import {Tab, TabList, Tabs} from 'primeng/tabs';
     CommonModule,
     ButtonModule,
     BrowserAnimationsModule,
+    DialogModule,
     RouterLink,
     Toast,
     Menu,
@@ -50,10 +52,12 @@ import {Tab, TabList, Tabs} from 'primeng/tabs';
   providers: [
     provideHttpClient(),
     MessageService,
+    ConfirmationService,
     UserService,
     ToastService,
     AuthService,
-    ContextService
+    ContextService,
+
   ]
 })
 export class SharedModule { }

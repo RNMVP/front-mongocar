@@ -9,6 +9,7 @@ import {CustomerProfileComponent} from './pages/userProfiles/customer-profile/cu
 import {EmployeeProfileComponent} from './pages/userProfiles/employee-profile/employee-profile.component';
 import {AdminComponent} from './pages/admin/admin.component';
 import {CreateEmployeeComponent} from './pages/admin/tabs/create-employee/create-employee.component';
+import {EmployeesListComponent} from './pages/admin/tabs/employees-list/employees-list.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {path: 'create-employee', component: CreateEmployeeComponent},
-      {path: 'menage-customers', component: AdminComponent},
+      {path: 'employees', component: EmployeesListComponent},
       {path: 'something', component: AdminComponent},
       {path: '', redirectTo: 'create-employee', pathMatch: 'full'},
     ]

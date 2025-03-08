@@ -10,6 +10,7 @@ export class TabComponent {
 
   @Input({required:true})
   tabs: { label: string; icon: string; route: string; }[] | undefined;
+  // These classes work only with global classes made available by primeflex library
   @Input({alias:'contentClasses'})
   classes!:string;
 }

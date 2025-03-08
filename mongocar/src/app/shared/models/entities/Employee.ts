@@ -1,6 +1,6 @@
 import UserModel from './UserModel';
 
-export default class EmployeeToCreate implements UserModel{
+export default class Employee implements UserModel{
   id: string | null;
   name: string;
   salary: number;

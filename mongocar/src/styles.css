@@ -9,10 +9,6 @@ html{
   height: 100vh;
 }
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Orbitron', 'Roboto', Times, "Times New Roman", Georgia, sans-serif;
   margin: 0;

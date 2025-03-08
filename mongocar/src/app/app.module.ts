@@ -16,6 +16,11 @@ import { CustomerProfileComponent } from './pages/userProfiles/customer-profile/
 import { EmployeeProfileComponent } from './pages/userProfiles/employee-profile/employee-profile.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CreateEmployeeComponent } from './pages/admin/tabs/create-employee/create-employee.component';
+import { EmployeesListComponent } from './pages/admin/tabs/employees-list/employees-list.component';
+import {TableModule} from "primeng/table";
+import {ButtonDirective, ButtonIcon} from 'primeng/button';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {Dialog} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,8 @@ import { CreateEmployeeComponent } from './pages/admin/tabs/create-employee/crea
     CustomerProfileComponent,
     EmployeeProfileComponent,
     AdminComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    EmployeesListComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,11 @@ import { CreateEmployeeComponent } from './pages/admin/tabs/create-employee/crea
     SharedModule,
     FormsModule,
     InputText,
+    TableModule,
+    ButtonDirective,
+    ButtonIcon,
+    ConfirmDialogModule,
+    Dialog
   ],
   providers: [
     ...appConfig.providers,

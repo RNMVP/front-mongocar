@@ -25,6 +25,8 @@ const light = {
     focusColor: '#fff'
   },
   text:{
+    title: '#2c3e50',
+    label: '#34495e',
     color: '#000',
     error:{
       color: '{red.500}'

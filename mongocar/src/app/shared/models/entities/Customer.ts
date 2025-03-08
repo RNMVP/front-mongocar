@@ -1,7 +1,7 @@
 import CarModel from './CarModel';
 import UserModel from './UserModel';
 
-export default class CustomerToCreate implements UserModel {
+export default class Customer implements UserModel {
   id: string | null;
   name: string;
   email: string;

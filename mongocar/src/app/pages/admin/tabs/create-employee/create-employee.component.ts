@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import EmployeeToCreate from '../../../../shared/models/entities/EmployeeToCreate';
+import Employee from '../../../../shared/models/entities/Employee';
 import {ToastService} from '../../../../shared/services/toast/toast.service';
 import {UserService} from '../../../../shared/services/user/user.service';
 import {HttpErrorResponse} from '@angular/common/http';
@@ -11,7 +11,7 @@ import {HttpErrorResponse} from '@angular/common/http';
   styleUrl: './create-employee.component.css'
 })
 export class CreateEmployeeComponent {
-  employee: EmployeeToCreate = {
+  employee: Employee = {
     id: null,
     name: '',
     salary: 0,
