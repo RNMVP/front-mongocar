@@ -18,6 +18,8 @@ import {ContextService} from './services/context/context.service';
 import { TabComponent } from './components/primeng/tab/tab.component';
 import {Tab, TabList, Tabs} from 'primeng/tabs';
 import {DialogModule} from 'primeng/dialog';
+import { TableComponent } from './components/primeng/table/table.component';
+import {TableModule} from 'primeng/table';
 
 
 
@@ -28,14 +30,16 @@ import {DialogModule} from 'primeng/dialog';
     ToastComponent,
     HeaderComponent,
     TabComponent,
+    TableComponent,
   ],
-  exports: [
-    ButtonComponent,
-    MenuComponent,
-    ToastComponent,
-    HeaderComponent,
-    TabComponent
-  ],
+    exports: [
+        ButtonComponent,
+        MenuComponent,
+        ToastComponent,
+        HeaderComponent,
+        TabComponent,
+        TableComponent
+    ],
   imports: [
     CommonModule,
     ButtonModule,
@@ -48,6 +52,7 @@ import {DialogModule} from 'primeng/dialog';
     Tabs,
     TabList,
     Tab,
+    TableModule,
   ],
   providers: [
     provideHttpClient(),

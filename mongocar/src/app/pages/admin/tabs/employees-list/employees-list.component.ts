@@ -4,6 +4,8 @@ import {ConfirmationService} from 'primeng/api';
 import Employee from '../../../../shared/models/entities/Employee';
 import {ToastService} from '../../../../shared/services/toast/toast.service';
 import EmployeeToEdit from '../../../../shared/models/EmployeeToEdit';
+import {ActionColumn, NormalColumn} from '../../../../interfaces/Column';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employees-list',
@@ -12,15 +14,52 @@ import EmployeeToEdit from '../../../../shared/models/EmployeeToEdit';
   styleUrl: './employees-list.component.css'
 })
 export class EmployeesListComponent implements OnInit {
-  employees: Employee[] = [];
-  displayEditDialog: boolean = false; // Controla a visibilidade do modal
-  selectedEmployee: EmployeeToEdit = {id: '', email: '', name: '', position: '', salary: 0}; // Funcionário selecionado para edição
+  employees: Employee[];
+  displayEditDialog: boolean;
+  selectedEmployee: EmployeeToEdit;
+  columns: (ActionColumn | NormalColumn)[];
 
   constructor(
     private userService: UserService,
     private confirmationService: ConfirmationService,
     private toastService: ToastService,
+    private router: Router,
   ) {
+    this.employees = []
+    this.displayEditDialog = false;
+    this.selectedEmployee = {id: '', email: '', name: '', position: '', salary: 0};
+    this.columns = [
+      {
+        field: 'name',
+        header: 'Nome',
+        clickable: true,
+        action: async (employee: Employee) => {
+          await this.router.navigate(['/user-detail', employee.id])
+        }
+      },
+      {
+        field: 'salary',
+        header: 'Salário',
+      },
+      {
+        field: 'position',
+        header: 'Função',
+      },
+      {
+        field: 'email',
+        header: 'Email',
+      },
+      {
+        header: 'Editar',
+        icon:'pi pi-pencil',
+        action: this.openEditDialog.bind(this),
+      },
+      {
+        Header:'Excluir',
+        icon: 'pi pi-trash',
+        action: this.deleteEmployee.bind(this),
+      }
+    ]
   }
 
   ngOnInit(): void {
@@ -39,8 +78,8 @@ export class EmployeesListComponent implements OnInit {
   }
 
   openEditDialog(employee: EmployeeToEdit): void {
-    this.selectedEmployee = {...employee}; // Copia os dados do funcionário selecionado
-    this.displayEditDialog = true; // Abre o modal
+    this.selectedEmployee = {...employee};
+    this.displayEditDialog = true;
   }
 
   saveEmployee(): void {
@@ -50,8 +89,8 @@ export class EmployeesListComponent implements OnInit {
           'Sucesso',
           'Funcionário atualizado com sucesso!',
         );
-        this.loadEmployees(); // Recarrega a lista após a edição
-        this.displayEditDialog = false; // Fecha o modal
+        this.loadEmployees();
+        this.displayEditDialog = false;
       },
       error: (error: any) => {
         console.error('Erro ao atualizar funcionário:', error);
@@ -75,7 +114,7 @@ export class EmployeesListComponent implements OnInit {
               'Sucesso',
               'Funcionário removido com sucesso!',
             );
-            this.loadEmployees(); // Recarrega a lista após a exclusão
+            this.loadEmployees();
           },
           error: (error: any) => {
             console.error('Erro ao remover funcionário:', error);

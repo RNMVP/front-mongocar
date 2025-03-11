@@ -29,4 +29,6 @@ export class ButtonComponent{
   type: string  = 'button';
   @Input()
   disable: boolean | null = false;
+  @Input()
+  icon: string | undefined = undefined;
 }
