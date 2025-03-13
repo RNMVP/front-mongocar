@@ -20,6 +20,8 @@ import {Tab, TabList, Tabs} from 'primeng/tabs';
 import {DialogModule} from 'primeng/dialog';
 import { TableComponent } from './components/primeng/table/table.component';
 import {TableModule} from 'primeng/table';
+import { DialogFormComponent } from './components/primeng/dialog-form/dialog-form.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -31,15 +33,17 @@ import {TableModule} from 'primeng/table';
     HeaderComponent,
     TabComponent,
     TableComponent,
+    DialogFormComponent,
   ],
-    exports: [
-        ButtonComponent,
-        MenuComponent,
-        ToastComponent,
-        HeaderComponent,
-        TabComponent,
-        TableComponent
-    ],
+  exports: [
+    ButtonComponent,
+    MenuComponent,
+    ToastComponent,
+    HeaderComponent,
+    TabComponent,
+    TableComponent,
+    DialogFormComponent
+  ],
   imports: [
     CommonModule,
     ButtonModule,
@@ -53,6 +57,7 @@ import {TableModule} from 'primeng/table';
     TabList,
     Tab,
     TableModule,
+    FormsModule,
   ],
   providers: [
     provideHttpClient(),

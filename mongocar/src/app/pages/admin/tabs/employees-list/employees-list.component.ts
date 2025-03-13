@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../../shared/services/user/user.service';
 import {ConfirmationService} from 'primeng/api';
 import Employee from '../../../../shared/models/entities/Employee';
@@ -6,6 +6,7 @@ import {ToastService} from '../../../../shared/services/toast/toast.service';
 import EmployeeToEdit from '../../../../shared/models/EmployeeToEdit';
 import {ActionColumn, NormalColumn} from '../../../../interfaces/Column';
 import {Router} from '@angular/router';
+import {DialogFormComponent} from '../../../../shared/components/primeng/dialog-form/dialog-form.component';
 
 @Component({
   selector: 'app-employees-list',
@@ -14,10 +15,13 @@ import {Router} from '@angular/router';
   styleUrl: './employees-list.component.css'
 })
 export class EmployeesListComponent implements OnInit {
+  @ViewChild(DialogFormComponent) dialogForm!: DialogFormComponent;
+
   employees: Employee[];
   displayEditDialog: boolean;
   selectedEmployee: EmployeeToEdit;
   columns: (ActionColumn | NormalColumn)[];
+  dialogFields!: {value: string, type: string}[];
 
   constructor(
     private userService: UserService,
@@ -60,6 +64,24 @@ export class EmployeesListComponent implements OnInit {
         action: (employee: Employee) => {this.deleteEmployee(employee)},
       }
     ]
+    this.dialogFields = [
+      {
+        value: 'name',
+        type: 'text'
+      },
+      {
+        value: 'email',
+        type: 'email'
+      },
+      {
+        value: 'salary',
+        type: 'number'
+      },
+      {
+        value: 'position',
+        type: 'text'
+      },
+    ]
   }
 
   ngOnInit(): void {
@@ -79,11 +101,11 @@ export class EmployeesListComponent implements OnInit {
 
   openEditDialog(employee: EmployeeToEdit): void {
     this.selectedEmployee = {...employee};
-    console.log(this.selectedEmployee);
-    this.displayEditDialog = true;
+
+    this.dialogForm.changeVisibility()
   }
 
-  saveEmployee(): void {
+  saveEmployee = () => {
     this.userService.updateEmployee(this.selectedEmployee).subscribe({
       next: () => {
         this.toastService.successful(

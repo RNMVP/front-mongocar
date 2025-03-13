@@ -1,0 +1,24 @@
+<p-dialog
+  [(visible)]="displayDialog"
+  [style]="{ width: '450px' }"
+  header="Editar Funcionário"
+  [modal]="true">
+  <form (ngSubmit)="submitAction()" class="edit-form">
+    <div class="form-group" *ngFor="let field of fields">
+      <label for="field">{{ field.value }}:</label>
+      <input
+        type="{{field.type}}"
+        id="field"
+        [(ngModel)]="forfillFormnValues[field.value]"
+        name="{{field.value}}"
+        required
+        placeholder="Digite o {{field.value}}"
+      />
+    </div>
+    <div class="form-actions">
+      <button pButton type="submit" label="Salvar" class="p-button-success"></button>
+      <button pButton type="button" label="Cancelar" class="p-button-secondary"
+              (click)="changeVisibility()"></button>
+    </div>
+  </form>
+</p-dialog>
