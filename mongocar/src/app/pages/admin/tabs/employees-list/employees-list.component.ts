@@ -52,12 +52,12 @@ export class EmployeesListComponent implements OnInit {
       {
         header: 'Editar',
         icon:'pi pi-pencil',
-        action: this.openEditDialog.bind(this),
+        action: (employee: EmployeeToEdit) => {this.openEditDialog(employee)},
       },
       {
-        Header:'Excluir',
+        header:'Excluir',
         icon: 'pi pi-trash',
-        action: this.deleteEmployee.bind(this),
+        action: (employee: Employee) => {this.deleteEmployee(employee)},
       }
     ]
   }
@@ -79,6 +79,7 @@ export class EmployeesListComponent implements OnInit {
 
   openEditDialog(employee: EmployeeToEdit): void {
     this.selectedEmployee = {...employee};
+    console.log(this.selectedEmployee);
     this.displayEditDialog = true;
   }
 

@@ -10,10 +10,13 @@
     <tr>
       <td *ngFor="let col of columns">
         <span *ngIf="col.icon">
-          <app-button [icon]="col.icon" [onClick]="col.action"></app-button>
+          <app-button [icon]="col.icon" [onClick]="col.action" [param]="rowData"></app-button>
         </span>
         <span *ngIf="!col.clickable && !col.icon">{{ rowData[col.field] }}</span>
-        <app-button *ngIf="col.clickable && !col.icon" [link]="true" label="{{ rowData[col.field] }}" [routerLink]="col.routeToSend" ></app-button>
+        <app-button *ngIf="col.clickable && !col.icon"
+                    [link]="true"
+                    label="{{ rowData[col.field] }}"
+                    [routerLink]="col.routeToSend"></app-button>
       </td>
     </tr>
   </ng-template>
