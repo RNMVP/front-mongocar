@@ -18,7 +18,6 @@ export class EmployeesListComponent implements OnInit {
   @ViewChild(DialogFormComponent) dialogForm!: DialogFormComponent;
 
   employees: Employee[];
-  displayEditDialog: boolean;
   selectedEmployee: EmployeeToEdit;
   columns: (ActionColumn | NormalColumn)[];
   dialogFields!: {value: string, type: string}[];
@@ -30,7 +29,6 @@ export class EmployeesListComponent implements OnInit {
     private router: Router,
   ) {
     this.employees = []
-    this.displayEditDialog = false;
     this.selectedEmployee = {id: '', email: '', name: '', position: '', salary: 0};
     this.columns = [
       {
@@ -113,7 +111,7 @@ export class EmployeesListComponent implements OnInit {
           'Funcionário atualizado com sucesso!',
         );
         this.loadEmployees();
-        this.displayEditDialog = false;
+        this.dialogForm.changeVisibility();
       },
       error: (error: any) => {
         console.error('Erro ao atualizar funcionário:', error);
