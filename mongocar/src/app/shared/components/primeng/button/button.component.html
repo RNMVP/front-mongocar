@@ -1,11 +1,14 @@
 <div class="card flex justify-center">
-  <p-button [severity]="severity"
-            [variant]="variant"
-            [link]=link
-            [label]="label"
-            [size]=size
-            [styleClass]="styleClass"
-            (onClick)="onClick()"
-            [disabled]="disable"
-            [type]="type"></p-button>
+  <p-button
+    [severity]="severity"
+    [variant]="variant"
+    [link]=link
+    [label]="label"
+    [size]=size
+    [styleClass]="styleClass"
+    (onClick)="handleClick()"
+    [disabled]="disable"
+    [type]="type"
+    [icon]="icon"
+  ></p-button>
 </div>

@@ -1,70 +1,10 @@
 <div class="employee-list-container">
   <h1>Lista de Funcionários</h1>
-  <p-table [value]="employees" [paginator]="true" [rows]="10">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Nome</th>
-        <th>Cargo</th>
-        <th>Salário</th>
-        <th>Ações</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-employee>
-      <tr>
-        <td><app-button [link]="true" routerLink="RotaParaDetalhesDoEmpregado" label="{{ employee.name }}"></app-button></td>
-        <td>{{ employee.position }}</td>
-        <td>{{ employee.salary | currency:'BRL':'symbol':'1.2-2' }}</td>
-        <td>
-          <button pButton type="button" icon="pi pi-pencil" class="p-button-success p-mr-2" (click)="openEditDialog(employee)"></button>
-          <button pButton type="button" icon="pi pi-trash" class="p-button-danger" (click)="deleteEmployee(employee)"></button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+  <app-table [cols]="columns" [data]="employees"></app-table>
 
-  <!-- Modal de Edição -->
-  <p-dialog [(visible)]="displayEditDialog" [style]="{ width: '450px' }" header="Editar Funcionário" [modal]="true">
-    <form (ngSubmit)="saveEmployee()" class="edit-form">
-      <div class="form-group">
-        <label for="name">Nome:</label>
-        <input
-          type="text"
-          id="name"
-          [(ngModel)]="selectedEmployee.name"
-          name="name"
-          required
-          placeholder="Digite o nome"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="position">Cargo:</label>
-        <input
-          type="text"
-          id="position"
-          [(ngModel)]="selectedEmployee.position"
-          name="position"
-          required
-          placeholder="Digite o cargo"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="salary">Salário:</label>
-        <input
-          type="number"
-          id="salary"
-          [(ngModel)]="selectedEmployee.salary"
-          name="salary"
-          required
-          placeholder="Digite o salário"
-        />
-      </div>
-
-      <div class="form-actions">
-        <button pButton type="submit" label="Salvar" class="p-button-success"></button>
-        <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="displayEditDialog = false"></button>
-      </div>
-    </form>
-  </p-dialog>
+  <app-dialog-form
+    [fields]="dialogFields"
+    [forfillFormnValues]="selectedEmployee"
+    [submitAction]="saveEmployee"
+  ></app-dialog-form>
 </div>

@@ -12,7 +12,9 @@ export class ButtonComponent{
   label = ""
 
   @Input()
-  onClick: Function = ()=> {}
+  onClick!: Function
+  @Input()
+  param!: any
   @Input()
   severity: ButtonOptions['severity'] = 'primary';
   @Input()
@@ -29,4 +31,10 @@ export class ButtonComponent{
   type: string  = 'button';
   @Input()
   disable: boolean | null = false;
+  @Input()
+  icon: string | undefined = undefined;
+
+  handleClick(){
+    this.onClick(this.param)
+  }
 }

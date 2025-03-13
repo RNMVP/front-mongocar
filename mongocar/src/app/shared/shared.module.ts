@@ -18,6 +18,10 @@ import {ContextService} from './services/context/context.service';
 import { TabComponent } from './components/primeng/tab/tab.component';
 import {Tab, TabList, Tabs} from 'primeng/tabs';
 import {DialogModule} from 'primeng/dialog';
+import { TableComponent } from './components/primeng/table/table.component';
+import {TableModule} from 'primeng/table';
+import { DialogFormComponent } from './components/primeng/dialog-form/dialog-form.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -28,13 +32,17 @@ import {DialogModule} from 'primeng/dialog';
     ToastComponent,
     HeaderComponent,
     TabComponent,
+    TableComponent,
+    DialogFormComponent,
   ],
   exports: [
     ButtonComponent,
     MenuComponent,
     ToastComponent,
     HeaderComponent,
-    TabComponent
+    TabComponent,
+    TableComponent,
+    DialogFormComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +56,8 @@ import {DialogModule} from 'primeng/dialog';
     Tabs,
     TabList,
     Tab,
+    TableModule,
+    FormsModule,
   ],
   providers: [
     provideHttpClient(),
