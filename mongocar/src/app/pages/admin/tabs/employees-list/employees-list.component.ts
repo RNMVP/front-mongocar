@@ -7,6 +7,7 @@ import EmployeeToEdit from '../../../../shared/models/EmployeeToEdit';
 import {ActionColumn, NormalColumn} from '../../../../interfaces/Column';
 import {Router} from '@angular/router';
 import {DialogFormComponent} from '../../../../shared/components/primeng/dialog-form/dialog-form.component';
+import {ConfirmDialogService} from '../../../../shared/services/confirmDialog/confirm-dialog.service';
 
 @Component({
   selector: 'app-employees-list',
@@ -20,11 +21,12 @@ export class EmployeesListComponent implements OnInit {
   employees: Employee[];
   selectedEmployee: EmployeeToEdit;
   columns: (ActionColumn | NormalColumn)[];
-  dialogFields!: {value: string, type: string}[];
+  dialogFields!: { value: string, type: string }[];
 
   constructor(
     private userService: UserService,
     private confirmationService: ConfirmationService,
+    private confirmDialogService: ConfirmDialogService,
     private toastService: ToastService,
     private router: Router,
   ) {
@@ -53,13 +55,17 @@ export class EmployeesListComponent implements OnInit {
       },
       {
         header: 'Editar',
-        icon:'pi pi-pencil',
-        action: (employee: EmployeeToEdit) => {this.openEditDialog(employee)},
+        icon: 'pi pi-pencil',
+        action: (employee: EmployeeToEdit) => {
+          this.openEditDialog(employee)
+        },
       },
       {
-        header:'Excluir',
+        header: 'Excluir',
         icon: 'pi pi-trash',
-        action: (employee: Employee) => {this.deleteEmployee(employee)},
+        action: (employee: Employee) => {
+          this.deleteEmployee(employee)
+        },
       }
     ]
     this.dialogFields = [
@@ -124,11 +130,11 @@ export class EmployeesListComponent implements OnInit {
   }
 
   deleteEmployee(employee: Employee): void {
-    this.confirmationService.confirm({
-      message: `Tem certeza que deseja remover ${employee.name}?`,
-      header: 'Confirmar Exclusão',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
+    this.confirmDialogService.confirm(
+      `Tem certeza que deseja remover ${employee.name}?`,
+      'Confirmar Exclusão',
+      'pi pi-exclamation-triangle',
+      () => {
         this.userService.deleteEmployee(employee.id as string).subscribe({
           next: () => {
             this.toastService.successful(
@@ -146,6 +152,6 @@ export class EmployeesListComponent implements OnInit {
           },
         });
       },
-    });
+    );
   }
 }
