@@ -1,6 +1,6 @@
 <div class="add-employee-container">
   <h1>Adicionar Funcionário</h1>
-  <form (ngSubmit)="onSubmit()" class="employee-form">
+  <form (ngSubmit)="onSubmit(form)" #form=ngForm class="employee-form">
     <div class="form-group">
       <label for="name">Nome:</label>
       <input

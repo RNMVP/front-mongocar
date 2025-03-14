@@ -22,6 +22,7 @@ import { TableComponent } from './components/primeng/table/table.component';
 import {TableModule} from 'primeng/table';
 import { DialogFormComponent } from './components/primeng/dialog-form/dialog-form.component';
 import {FormsModule} from '@angular/forms';
+import {ConfirmDialogService} from './services/confirmDialog/confirm-dialog.service';
 
 
 
@@ -67,7 +68,7 @@ import {FormsModule} from '@angular/forms';
     ToastService,
     AuthService,
     ContextService,
-
+    ConfirmDialogService
   ]
 })
 export class SharedModule { }
