@@ -76,6 +76,11 @@
               "buildTarget": "mongocar:build:development"
             }
           },
+          "options": {
+            "sslKey": "ssl/localhost-key.pem",
+            "sslCert": "ssl/localhost.pem",
+            "ssl": true
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
